@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--  ----------------------------------------------------------------------  -->
+	<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+	<!--  If necessary, please modify the charset parameter to specify the        -->
+	<!--  character set of your HTML page.                                        -->
+	<!--  ----------------------------------------------------------------------  -->
+	<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="styles.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://cs124.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST"onsubmit="showSuccss()"  id="ticketForm" target="hidden-form">
+
+<input type=hidden name="orgid" value="00D3J0000000QkM">
+<!--input type=hidden name="retURL" value="http://"-->
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="pankaj.singh@extentia.com">                                      -->
+<!--  ----------------------------------------------------------------------  -->
+<h1>Change Request Form- UAT</h1>
+<section class="fields-wrapper">
+    <div class="input-group">
+		<label for="name">Requester Name<span class="required">*</span></label>
+		<input class="input-style" id="name" maxlength="80" name="name" size="20" type="text" required/>
+	</div>
+	<div class="input-group">
+		<label for="email">Requester Email<span class="required">*</span></label>
+		<input class="input-style" id="email" maxlength="80" name="email" size="20" type="email" oninvalid="this.setCustomValidity('Please Enter valid email')" oninput="setCustomValidity('')" required />
+	</div>
+	
+	<div class="input-group">
+		<label>Office Location<span class="required">*</span></label>
+		<select class="input-style" id="00N3J000000gKOE" name="00N3J000000gKOE" title="Office Location" required>
+		<option value="">--None--</option>
+		<option value="Atlanta - Georgia">Atlanta - Georgia</option>
+		<option value="Beverly Hills - California">Beverly Hills - California</option>
+		<option value="Boston - Massachusetts">Boston - Massachusetts</option>
+		<option value="Chicago - Illinois">Chicago - Illinois</option>
+		<option value="Cleveland - Ohio">Cleveland - Ohio</option>
+		<option value="Columbus - Ohio">Columbus - Ohio</option>
+		<option value="Costa Mesa - California">Costa Mesa - California</option>
+		<option value="Dallas - Texas">Dallas - Texas</option>
+		<option value="DC/VA/MD - Virginia">DC/VA/MD - Virginia</option>
+		<option value="Erie - Pennsylvania">Erie - Pennsylvania</option>
+		<option value="Ft. Lauderdale - Florida">Ft. Lauderdale - Florida</option>
+		<option value="Ft. Myers - Florida">Ft. Myers - Florida</option>
+		<option value="Harrisburg - Pennsylvania">Harrisburg - Pennsylvania</option>
+		<option value="Honolulu - Hawaii">Honolulu - Hawaii</option>
+		<option value="Houston - Texas">Houston - Texas</option>
+		<option value="Johnstown - Pennsylvania">Johnstown - Pennsylvania</option>
+		<option value="Las Vegas - Nevada">Las Vegas - Nevada</option>
+		<option value="Manhattan - New York">Manhattan - New York</option>
+		<option value="Murphysboro - Illinois">Murphysboro - Illinois</option>
+		<option value="Orlando - Florida">Orlando - Florida</option>
+		<option value="Parkersburg - West Virginia">Parkersburg - West Virginia</option>
+		<option value="Philadelphia - Pennsylvania">Philadelphia - Pennsylvania</option>
+		<option value="Pittsburgh - Pennsylvania">Pittsburgh - Pennsylvania</option>
+		<option value="Poconos - Pennsylvania">Poconos - Pennsylvania</option>
+		<option value="Rahway - New Jersey">Rahway - New Jersey</option>
+		<option value="SOC - Pennsylvania">SOC - Pennsylvania</option>
+		<option value="State College - Pennsylvania">State College - Pennsylvania</option>
+		<option value="Tampa - Florida">Tampa - Florida</option>
+		<option value="West Palm Beach - Florida">West Palm Beach - Florida</option>
+		<option value="Youngstown - Ohio">Youngstown - Ohio</option>
+		</select>
+	</div>
+	
+    <div class="input-group">
+		<label>Change Type<span class="required">*</span></label>
+		<select class="input-style" id="00N3J000000haKB" name="00N3J000000haKB" title="Change Type" required>
+		<option value="">--None--</option>
+		<option value="Employee Pay Rate Change">Employee Pay Rate Change</option>
+		<option value="Site Bill Rate Change">Site Bill Rate Change</option>
+		<option value="Site Post Creation">Site Post Creation</option>
+		</select>
+	</div>
+	<div class="input-group">
+		<label>Category<span class="required">*</span></label>
+		<select class="input-style" id="categoryVal" name="00N3J000000gKNy" title="Category" onchange="submitCategory()" required>
+		<option value="Operations - Change Request">Operations - Change Request</option>
+		</select>
+	</div>
+	</section>
+	<h4>Employee Pay Information</h4>
+	<section class="fields-wrapper">
+	<div class="input-group">
+		<label>Employee Name</label>	
+		<input class="input-style" id="00N3J000000haKE" maxlength="50" name="00N3J000000haKE" size="20" type="text" />
+    </div>
+    <div class="input-group">
+		<label>Employee Number</label>
+		<input class="input-style" id="00N3J000000haKF" maxlength="10" name="00N3J000000haKF" size="20" type="text" />
+    </div>
+	<div class="input-group">
+		<label>Current Pay Rate</label>
+		<input class="input-style" id="00N3J000000haKD" maxlength="50" name="00N3J000000haKD" step='0.01' size="20" type="number" />
+    </div>
+    <div class="input-group">
+		<label>New Pay Rate</label>
+		<input class="input-style" id="00N3J000000haKI" maxlength="50" name="00N3J000000haKI" step='0.01' size="20" type="number"  />
+    </div>
+	
+	<div class="input-group inputWithIcon">
+		<label>Effective Date<span class="required">*</span></label>
+	
+		<span class="dateInput dateOnlyInput"><input class="input-style date-style"  type="text"  id="txtDate"   readonly="readonly" name="00N3J000000haKA"
+          size="12" placeholder="mm/dd/yyyy" required >
+		<i class="fa fa-calendar" aria-hidden="true"></i></span>
+	</div>
+		
+	</section>
+	<h4>Site Information</h4>
+	<section class="fields-wrapper">
+	<div class="input-group">
+		<label>Site Name</label>	
+		<input class="input-style" id="00N3J000000haKL" maxlength="50" name="00N3J000000haKL" size="20" type="text"  />
+    </div>
+    <div class="input-group">
+		<label>Site Number</label>
+		<input class="input-style" id="00N3J000000haKM" maxlength="10" name="00N3J000000haKM" size="20" type="text" />
+    </div>
+	<div class="input-group">
+		<label>Current Bill Rate</label>
+		<input class="input-style" id="00N3J000000haKC" maxlength="50" name="00N3J000000haKC" step='0.01' size="20" type="number"  />
+    </div>
+    <div class="input-group">
+		<label>New Bill Rate</label>
+		<input class="input-style" id="00N3J000000haKH" maxlength="50" name="00N3J000000haKH" step='0.01' size="20" type="number"  />
+    </div>	
+	<div class="input-group">
+		<label>Post Name</label>	
+		<input class="input-style" id="00N3J000000haKJ" maxlength="50" name="00N3J000000haKJ" size="20" type="text"  />
+    </div>
+	<div class="input-group">
+		<label>Reason for the change request<span class="required">*</span></label>	
+		<input class="input-style" id="00N3J000000haKK" maxlength="50" name="00N3J000000haKK" size="20" type="text" required />
+    </div>
+	</section>
+	
+	
+<input type=hidden id="recordType" name="recordType" value="0123J0000008qFNQAY">
+<div class="button-wrap">
+    <input type="submit" name="submit" >
+</div>
+
+</form>
+<section class="alert-success">
+    The form is submitted successfully please check your email for additional communication about your request.
+    <IFRAME style="display:none" name="hidden-form"></IFRAME>
+</section>
+<script>
+
+function showSuccss() {
+    document.getElementById('ticketForm').classList.add('submitted');
+}
+$(function () {
+        $("#txtDate").datepicker({
+            dateFormat: 'mm/dd/yy'
+        });
+    });
+$(document).ready(function() {
+  $("#txtDate").datepicker();
+  $('.fa-calendar').click(function() {
+    $("#txtDate").focus();
+  });
+});
+
+</script>
+</body>
+</html>
