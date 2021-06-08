@@ -215,7 +215,7 @@ function validate() {
          var netdrives = document.getElementById("netdrives").value;
             if (netaccess === "RDS/VMware" && netdrives === "") {
 			    document.querySelector("[for='00N3J000000haKG']").style.display = "block";
-				//document.getElementById("netdrives").reload();
+			    document.getElementById("netdrives").reload();
 				return false;
             }else{
             	document.querySelector("[for='00N3J000000haKG']").style.display = "none";
