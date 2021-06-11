@@ -67,10 +67,18 @@ body {
   }
   
   .textarea {
-	  height:75px;
+	  
+	width:150px;
+    height:62px;
+    color:gray;
   }
   .date-style {
 	  font-family:verdana;
+  }
+  ::placeholder{
+	  font-family:verdana;
+	  color:gray;
+
   }
   
   .input-group label {
